@@ -230,8 +230,22 @@ nombreDeLignes  26
 
 ### Ouverture du projet dans Eclipse
 
+Ajouter le logiciel enfichable M2Eclipse:
+
+http://download.eclipse.org/technology/m2e/releases
+
 ### Modification
 
 ### Compilation et exécution
 
 ### Problèmes
+
+- Combien de vols par compagnie aerienne?
+- Quelle paire d'aéroports à fait le plus de vols en 2013?
+- Quel avion a le plus volé en 2013? Quel quantité de milles a-t-il volé?
+- En moyenne, quelle compagnie aerienne a le plus de retards?
+- Quel mois est-ce qu'il y a le plus de retards? Quelle heure? Quel jour de la semaine?
+- Quel jour est-ce qu'il y a le plus d'annulations de vols?
+- Est-ce qu'il y a une correlation entre la duree d'un vol et la quantite de retards?
+- Quels conseils donneriez-vous a quelqu'un qui veut eviter d'etre en retard?
+- Selon vous, comment feriez-vous pour joindre deux ensembles de données avec MapReduce?
