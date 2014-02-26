@@ -4,6 +4,12 @@
 
 ### Mise à jour de la machine virtuelle
 
+```
+wget https://raw.github.com/jfim/bigdata-exercices-mapreduce/master/miseajourvm.sh
+chmod +x miseajourvm.sh
+sudo ./miseajourvm.sh
+```
+
 ### Téléchargement des fichiers de données
 
 ### Copie des fichiers de données sur la machine virtuelle
