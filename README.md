@@ -10,6 +10,54 @@
 
 ## Manipulation des fichiers avec HDFS
 
+```
+hadoop fs
+```
+```
+Usage: hadoop fs [generic options]
+        [-cat [-ignoreCrc] <src> ...]
+        [-chgrp [-R] GROUP PATH...]
+        [-chmod [-R] <MODE[,MODE]... | OCTALMODE> PATH...]
+        [-chown [-R] [OWNER][:[GROUP]] PATH...]
+        [-copyFromLocal <localsrc> ... <dst>]
+        [-copyToLocal [-ignoreCrc] [-crc] <src> ... <localdst>]
+        [-count [-q] <path> ...]
+        [-cp <src> ... <dst>]
+        [-df [-h] [<path> ...]]
+        [-du [-s] [-h] <path> ...]
+        [-expunge]
+        [-get [-ignoreCrc] [-crc] <src> ... <localdst>]
+        [-getmerge [-nl] <src> <localdst>]
+        [-help [cmd ...]]
+        [-ls [-d] [-h] [-R] [<path> ...]]
+        [-mkdir [-p] <path> ...]
+        [-moveFromLocal <localsrc> ... <dst>]
+        [-moveToLocal <src> <localdst>]
+        [-mv <src> ... <dst>]
+        [-put <localsrc> ... <dst>]
+        [-rm [-f] [-r|-R] [-skipTrash] <src> ...]
+        [-rmdir [--ignore-fail-on-non-empty] <dir> ...]
+        [-setrep [-R] [-w] <rep> <path/file> ...]
+        [-stat [format] <path> ...]
+        [-tail [-f] <file>]
+        [-test -[ezd] <path>]
+        [-text [-ignoreCrc] <src> ...]
+        [-touchz <path> ...]
+        [-usage [cmd ...]]
+
+Generic options supported are
+-conf <configuration file>     specify an application configuration file
+-D <property=value>            use value for given property
+-fs <local|namenode:port>      specify a namenode
+-jt <local|jobtracker:port>    specify a job tracker
+-files <comma separated list of files>    specify comma separated files to be copied to the map reduce cluster
+-libjars <comma separated list of jars>    specify comma separated jar files to include in the classpath.
+-archives <comma separated list of archives>    specify comma separated archives to be unarchived on the compute machines.
+
+The general command line syntax is
+bin/hadoop command [genericOptions] [commandOptions]
+```
+
 ### Affichage de votre répertoire personnel
 
 ```
@@ -96,7 +144,81 @@ Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
 
 ### Démarrage de la tâche
 
+```
+hadoop jar target/bigdata-exercices-mapreduce-1.0-SNAPSHOT.jar exercices.comptelignes.CompteLignes /user/bigdata/ontime /user/bigdata/output
+```
+
+```
+14/02/26 01:06:55 WARN mapred.JobClient: Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+14/02/26 01:06:57 INFO input.FileInputFormat: Total input paths to process : 1
+14/02/26 01:06:59 INFO mapred.JobClient: Running job: job_201402252318_0004
+14/02/26 01:07:00 INFO mapred.JobClient:  map 0% reduce 0%
+14/02/26 01:07:36 INFO mapred.JobClient:  map 100% reduce 0%
+14/02/26 01:07:51 INFO mapred.JobClient:  map 100% reduce 100%
+14/02/26 01:07:57 INFO mapred.JobClient: Job complete: job_201402252318_0004
+14/02/26 01:07:57 INFO mapred.JobClient: Counters: 32
+14/02/26 01:07:57 INFO mapred.JobClient:   File System Counters
+14/02/26 01:07:57 INFO mapred.JobClient:     FILE: Number of bytes read=70
+14/02/26 01:07:57 INFO mapred.JobClient:     FILE: Number of bytes written=322250
+14/02/26 01:07:57 INFO mapred.JobClient:     FILE: Number of read operations=0
+14/02/26 01:07:57 INFO mapred.JobClient:     FILE: Number of large read operations=0
+14/02/26 01:07:57 INFO mapred.JobClient:     FILE: Number of write operations=0
+14/02/26 01:07:57 INFO mapred.JobClient:     HDFS: Number of bytes read=675
+14/02/26 01:07:57 INFO mapred.JobClient:     HDFS: Number of bytes written=18
+14/02/26 01:07:57 INFO mapred.JobClient:     HDFS: Number of read operations=2
+14/02/26 01:07:57 INFO mapred.JobClient:     HDFS: Number of large read operations=0
+14/02/26 01:07:57 INFO mapred.JobClient:     HDFS: Number of write operations=1
+14/02/26 01:07:57 INFO mapred.JobClient:   Job Counters
+14/02/26 01:07:57 INFO mapred.JobClient:     Launched map tasks=1
+14/02/26 01:07:57 INFO mapred.JobClient:     Launched reduce tasks=1
+14/02/26 01:07:57 INFO mapred.JobClient:     Data-local map tasks=1
+14/02/26 01:07:57 INFO mapred.JobClient:     Total time spent by all maps in occupied slots (ms)=16883
+14/02/26 01:07:57 INFO mapred.JobClient:     Total time spent by all reduces in occupied slots (ms)=26617
+14/02/26 01:07:57 INFO mapred.JobClient:     Total time spent by all maps waiting after reserving slots (ms)=0
+14/02/26 01:07:57 INFO mapred.JobClient:     Total time spent by all reduces waiting after reserving slots (ms)=0
+14/02/26 01:07:57 INFO mapred.JobClient:   Map-Reduce Framework
+14/02/26 01:07:57 INFO mapred.JobClient:     Map input records=26
+14/02/26 01:07:57 INFO mapred.JobClient:     Map output records=26
+14/02/26 01:07:57 INFO mapred.JobClient:     Map output bytes=494
+14/02/26 01:07:57 INFO mapred.JobClient:     Input split bytes=114
+14/02/26 01:07:57 INFO mapred.JobClient:     Combine input records=0
+14/02/26 01:07:57 INFO mapred.JobClient:     Combine output records=0
+14/02/26 01:07:57 INFO mapred.JobClient:     Reduce input groups=1
+14/02/26 01:07:57 INFO mapred.JobClient:     Reduce shuffle bytes=66
+14/02/26 01:07:57 INFO mapred.JobClient:     Reduce input records=26
+14/02/26 01:07:57 INFO mapred.JobClient:     Reduce output records=1
+14/02/26 01:07:57 INFO mapred.JobClient:     Spilled Records=52
+14/02/26 01:07:57 INFO mapred.JobClient:     CPU time spent (ms)=2520
+14/02/26 01:07:57 INFO mapred.JobClient:     Physical memory (bytes) snapshot=286416896
+14/02/26 01:07:57 INFO mapred.JobClient:     Virtual memory (bytes) snapshot=1892405248
+14/02/26 01:07:57 INFO mapred.JobClient:     Total committed heap usage (bytes)=175312896
+```
+
+
 ### Visualisation de l'exécution de la tâche
+
+http://10.5.17.118:50030/jobtracker.jsp
+
+### La sortie de la tâche
+
+```
+hadoop fs -ls /user/bigdata/output
+```
+
+```
+Found 3 items
+-rw-r--r--   3 bigdata supergroup          0 2014-02-26 01:07 /user/bigdata/output/_SUCCESS
+drwxr-xr-x   - bigdata supergroup          0 2014-02-26 01:06 /user/bigdata/output/_logs
+-rw-r--r--   3 bigdata supergroup         18 2014-02-26 01:07 /user/bigdata/output/part-r-00000
+```
+
+```
+hadoop fs -cat /user/bigdata/output/part-r-00000
+```
+
+```
+nombreDeLignes  26
+```
 
 ## Votre première tâche MapReduce
 
@@ -104,3 +226,6 @@ Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
 
 ### Modification
 
+### Compilation et exécution
+
+### Problèmes
