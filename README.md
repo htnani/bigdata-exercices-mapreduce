@@ -12,6 +12,8 @@ sudo ./miseajourvm.sh
 
 ### Téléchargement des fichiers de données
 
+Les fichiers sont sur R:\H14N\INF-O17 gr.000001\documents
+
 ### Copie des fichiers de données sur la machine virtuelle
 
 ## Manipulation des fichiers avec HDFS
