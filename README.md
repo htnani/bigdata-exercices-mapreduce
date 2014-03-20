@@ -236,6 +236,24 @@ Ajouter le logiciel enfichable M2Eclipse:
 
 http://download.eclipse.org/technology/m2e/releases
 
+Alternativement, vous devez télécharger Maven http://maven.apache.org/ et l'extraire sur votre bureau, puis exécuter
+
+```
+SET PATH=%PATH%;c:\users\jfim\desktop\apache-maven-3.2.1\bin
+SET "JAVA_HOME=C:\Program Files (x86)\Java\jdk1.7.0_45"
+```
+
+À partir de ce moment, la commande "mvn" devrait fonctionner. Si tout fonctionne, connectez le lecteur réseau sur une lettre (par exemple Z:) puis exécutez:
+
+```
+z:
+cd bigdata-exercices-mapreduce
+mvn eclipse:eclipse
+mvn -Declipse.workspace=C:\users\jfim\workspace eclipse:configure-workspace
+```
+
+Vous devriez maintenant être capable d'importer le projet Eclipse.
+
 ### Modification
 
 ### Compilation et exécution
